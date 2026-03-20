@@ -242,13 +242,13 @@ export function SettingsSection() {
   if (currentView === "account") {
     return (
       <div className="flex-1 flex flex-col bg-background min-h-0">
-        {/* Header */}
-        <div className="bg-[#1a472a] text-white p-4">
-          <button onClick={handleBack} className="flex items-center gap-2 text-white/80 hover:text-white mb-2">
+        {/* Header with Back */}
+        <div className="p-4 border-b border-border">
+          <button onClick={handleBack} className="flex items-center gap-2 text-[#1a472a] dark:text-[#4ade80] mb-3">
             <ChevronLeft className="w-5 h-5" />
-            <span className="text-sm">{t("Back", "Bumalik")}</span>
+            <span className="font-medium">{t("Back", "Bumalik")}</span>
           </button>
-          <h2 className="text-xl font-bold">{t("Account", "Account")}</h2>
+          <h2 className="text-xl font-bold text-foreground">{t("Account", "Account")}</h2>
         </div>
 
         {/* Content */}
@@ -446,13 +446,13 @@ export function SettingsSection() {
 
     return (
       <div className="flex-1 flex flex-col bg-background min-h-0">
-        {/* Header */}
-        <div className="bg-[#1a472a] text-white p-4">
-          <button onClick={handleBack} className="flex items-center gap-2 text-white/80 hover:text-white mb-2">
+        {/* Header with Back */}
+        <div className="p-4 border-b border-border">
+          <button onClick={handleBack} className="flex items-center gap-2 text-[#1a472a] dark:text-[#4ade80] mb-3">
             <ChevronLeft className="w-5 h-5" />
-            <span className="text-sm">{t("Back", "Bumalik")}</span>
+            <span className="font-medium">{t("Back", "Bumalik")}</span>
           </button>
-          <h2 className="text-xl font-bold">{t("Notifications", "Mga Abiso")}</h2>
+          <h2 className="text-xl font-bold text-foreground">{t("Notifications", "Mga Abiso")}</h2>
         </div>
 
         {/* Content */}
@@ -557,13 +557,13 @@ export function SettingsSection() {
 
     return (
       <div className="flex-1 flex flex-col bg-background min-h-0">
-        {/* Header */}
-        <div className="bg-[#1a472a] text-white p-4">
-          <button onClick={handleBack} className="flex items-center gap-2 text-white/80 hover:text-white mb-2">
+        {/* Header with Back */}
+        <div className="p-4 border-b border-border">
+          <button onClick={handleBack} className="flex items-center gap-2 text-[#1a472a] dark:text-[#4ade80] mb-3">
             <ChevronLeft className="w-5 h-5" />
-            <span className="text-sm">{t("Back", "Bumalik")}</span>
+            <span className="font-medium">{t("Back", "Bumalik")}</span>
           </button>
-          <h2 className="text-xl font-bold">{t("Appearance", "Hitsura")}</h2>
+          <h2 className="text-xl font-bold text-foreground">{t("Appearance", "Hitsura")}</h2>
         </div>
 
         {/* Content */}
@@ -621,13 +621,13 @@ export function SettingsSection() {
 
     return (
       <div className="flex-1 flex flex-col bg-background min-h-0">
-        {/* Header */}
-        <div className="bg-[#1a472a] text-white p-4">
-          <button onClick={handleBack} className="flex items-center gap-2 text-white/80 hover:text-white mb-2">
+        {/* Header with Back */}
+        <div className="p-4 border-b border-border">
+          <button onClick={handleBack} className="flex items-center gap-2 text-[#1a472a] dark:text-[#4ade80] mb-3">
             <ChevronLeft className="w-5 h-5" />
-            <span className="text-sm">{t("Back", "Bumalik")}</span>
+            <span className="font-medium">{t("Back", "Bumalik")}</span>
           </button>
-          <h2 className="text-xl font-bold">{t("Language", "Wika")}</h2>
+          <h2 className="text-xl font-bold text-foreground">{t("Language", "Wika")}</h2>
         </div>
 
         {/* Content */}
@@ -669,13 +669,13 @@ export function SettingsSection() {
   if (currentView === "about") {
     return (
       <div className="flex-1 flex flex-col bg-background min-h-0">
-        {/* Header */}
-        <div className="bg-[#1a472a] text-white p-4">
-          <button onClick={handleBack} className="flex items-center gap-2 text-white/80 hover:text-white mb-2">
+        {/* Header with Back */}
+        <div className="p-4 border-b border-border">
+          <button onClick={handleBack} className="flex items-center gap-2 text-[#1a472a] dark:text-[#4ade80] mb-3">
             <ChevronLeft className="w-5 h-5" />
-            <span className="text-sm">{t("Back", "Bumalik")}</span>
+            <span className="font-medium">{t("Back", "Bumalik")}</span>
           </button>
-          <h2 className="text-xl font-bold">{t("About", "Tungkol Sa")}</h2>
+          <h2 className="text-xl font-bold text-foreground">{t("About", "Tungkol Sa")}</h2>
         </div>
 
         {/* Content */}
