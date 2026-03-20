@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Bell, Moon, Globe, Info, ChevronLeft, Check, Sun, Smartphone, User, Lock, LogOut, Camera, Save, Bookmark, MapPin, Trash2, X, CheckCircle } from "lucide-react"
+import { Bell, Moon, Globe, Info, ChevronLeft, Check, Sun, Smartphone, User, Lock, LogOut, Camera, Save, Bookmark, Trash2 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useLanguage } from "@/components/language-provider"
-import { useBookmarks, type AppNotification } from "@/components/bookmark-provider"
+import { useBookmarks } from "@/components/bookmark-provider"
 
 type SettingsView = "main" | "notifications" | "appearance" | "language" | "about" | "account"
 
@@ -45,7 +45,7 @@ export function SettingsSection() {
 
   const { theme, setTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
-  const { bookmarks, notifications: graveNotifications, removeBookmark, markNotificationAsRead, clearAllNotifications, unreadCount } = useBookmarks()
+  const { bookmarks, removeBookmark, unreadCount } = useBookmarks()
 
   // Load settings from localStorage
   useEffect(() => {
@@ -458,96 +458,6 @@ export function SettingsSection() {
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4">
-          {/* All Notifications */}
-          {graveNotifications.length > 0 && (
-            <div className="mb-6">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-foreground flex items-center gap-2">
-                  <Bell className="w-4 h-4 text-[#1a472a] dark:text-[#4ade80]" />
-                  {t("Recent Notifications", "Mga Kamakailang Abiso")}
-                </h3>
-                {graveNotifications.length > 0 && (
-                  <button
-                    onClick={clearAllNotifications}
-                    className="text-xs text-muted-foreground hover:text-foreground"
-                  >
-                    {t("Clear all", "Burahin lahat")}
-                  </button>
-                )}
-              </div>
-              <div className="space-y-2">
-                {graveNotifications.map((notification: AppNotification) => {
-                  if (notification.type === "grave_moved") {
-                    return (
-                      <div 
-                        key={notification.id} 
-                        className={`p-3 bg-card rounded-xl border ${notification.read ? "border-border" : "border-[#1a472a] dark:border-[#4ade80]"}`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className={`w-8 h-8 flex items-center justify-center rounded-full ${notification.read ? "bg-gray-200 dark:bg-gray-700" : "bg-[#1a472a]"}`}>
-                            <MapPin className={`w-4 h-4 ${notification.read ? "text-gray-500" : "text-white"}`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="font-medium text-foreground text-sm">{notification.deceasedName}</p>
-                            <p className="text-xs text-muted-foreground mt-1">
-                              {t("Moved from", "Inilipat mula sa")} {notification.oldLocation.section} {notification.oldLocation.block}-{notification.oldLocation.row}-{notification.oldLocation.graveNumber}
-                            </p>
-                            <p className="text-xs text-[#1a472a] dark:text-[#4ade80] font-medium">
-                              {t("New location", "Bagong lokasyon")}: {notification.newLocation.section} {notification.newLocation.block}-{notification.newLocation.row}-{notification.newLocation.graveNumber}
-                            </p>
-                            <p className="text-xs text-muted-foreground mt-1">
-                              {new Date(notification.movedAt).toLocaleDateString()}
-                            </p>
-                          </div>
-                          <button
-                            onClick={() => markNotificationAsRead(notification.id)}
-                            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
-                          >
-                            <X className="w-4 h-4 text-muted-foreground" />
-                          </button>
-                        </div>
-                      </div>
-                    )
-                  } else if (notification.type === "reservation_approved") {
-                    return (
-                      <div 
-                        key={notification.id} 
-                        className={`p-3 bg-card rounded-xl border ${notification.read ? "border-border" : "border-green-500 dark:border-green-400"}`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className={`w-8 h-8 flex items-center justify-center rounded-full ${notification.read ? "bg-gray-200 dark:bg-gray-700" : "bg-green-500"}`}>
-                            <CheckCircle className={`w-4 h-4 ${notification.read ? "text-gray-500" : "text-white"}`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="font-medium text-foreground text-sm">
-                              {t("Reservation Approved", "Naaprobahan ang Reserbasyon")}
-                            </p>
-                            <p className="text-xs text-muted-foreground mt-1">
-                              {t("Your lot reservation has been approved", "Naaprobahan na ang iyong reserbasyon ng lote")}
-                            </p>
-                            <p className="text-xs text-green-600 dark:text-green-400 font-medium">
-                              {t("Location", "Lokasyon")}: {notification.section} {notification.block}-{notification.row}-{notification.lotNumber}
-                            </p>
-                            <p className="text-xs text-muted-foreground mt-1">
-                              {new Date(notification.approvedAt).toLocaleDateString()}
-                            </p>
-                          </div>
-                          <button
-                            onClick={() => markNotificationAsRead(notification.id)}
-                            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
-                          >
-                            <X className="w-4 h-4 text-muted-foreground" />
-                          </button>
-                        </div>
-                      </div>
-                    )
-                  }
-                  return null
-                })}
-              </div>
-            </div>
-          )}
-
           {/* Bookmarked Graves */}
           <div className="mb-6">
             <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
