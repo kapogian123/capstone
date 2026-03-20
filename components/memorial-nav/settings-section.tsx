@@ -45,7 +45,7 @@ export function SettingsSection() {
 
   const { theme, setTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
-  const { bookmarks, removeBookmark, unreadCount } = useBookmarks()
+  const { bookmarks, removeBookmark } = useBookmarks()
 
   // Load settings from localStorage
   useEffect(() => {
@@ -167,9 +167,8 @@ export function SettingsSection() {
       {
         icon: Bell,
         title: "Notifications",
-        description: unreadCount > 0 ? `${unreadCount} unread` : "Push notifications and alerts",
-        view: "notifications" as SettingsView,
-        badge: unreadCount
+        description: "Push notifications and alerts",
+        view: "notifications" as SettingsView
       },
       {
         icon: Moon,
